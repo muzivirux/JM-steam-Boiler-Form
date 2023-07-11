@@ -4,18 +4,27 @@
 <head>
     <title>JM steam Boiler Form</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <!-- <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/css/select2.min.css"> -->
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
 </head>
 
 <body>
+    <!-- Logo -->
+    <div class="logo">
+        <a href="https://rafiqfarmfoods.com/" target="_blank">
+            <img id="logoImg" src="/images/rff.png">
+        </a>
+    </div>
+
+    <!-- Form -->
     <h1>JM steam Boiler Form</h1>
     <form id="JMsteamBoilerForm">
         <div class="sections">
             <h2>Biomass Consumption</h1>
+                <label for="totalRunninghrs">Total Running Hours:</label>
+                <input type="number" id="totalRunninghrs" name="Total Running Hours" required min="0"
+                    placeholder="Total Running Hours">
                 <label for="storge">Storage:</label>
                 <input type="number" id="storge" name="Storage" required min="0" placeholder="Storage">
                 <label for="usedton">Used Ton:</label>
@@ -46,8 +55,8 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>Copyright &copy; <a href="https://rafiqfarmfoods.com/" target="_blank"> Rafiq Farm Foods </a>| All Right
-            Reserved. </p>
+        <p><a href="https://rafiqfarmfoods.com/" target="_blank">Copyright &copy; Rafiq Farm Foods | All Right
+                Reserved.</a> </p>
     </footer>
     <!-- end of Footer -->
 
@@ -99,6 +108,7 @@
             var resetingForm = document.getElementById('storage').value;
             var resetingForm = document.getElementById('usedTon').value;
             var resetingForm = document.getElementById('remaining').value;
+            var resetingForm = document.getElementById('totalRunninghrs').value;
 
 
             // Perform any additional validation or processing here
@@ -111,6 +121,7 @@
             document.getElementById('storage').value = '';
             document.getElementById('usedTon').value = '';
             document.getElementById('remaining').value = '';
+            document.getElementById('totalRunninghrs').value = '';
 
 
 
