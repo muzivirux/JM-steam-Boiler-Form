@@ -106,24 +106,7 @@
         document.getElementById('JMsteamBoilerForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent the default form submission
 
-            // Get the form values
-            var resetingForm = document.getElementById('storage').value;
-            var resetingForm = document.getElementById('usedTon').value;
-            var resetingForm = document.getElementById('remaining').value;
-            var resetingForm = document.getElementById('totalRunninghrs').value;
-
-
-            // Perform any additional validation or processing here
-
-
-
-            // Send the form data to the server (you can use AJAX or other techniques)
-
-            // Reset the form fields
-            document.getElementById('storage').value = '';
-            document.getElementById('usedTon').value = '';
-            document.getElementById('remaining').value = '';
-            document.getElementById('totalRunninghrs').value = '';
+            this.reset();
         });
     </script>
     <!-- end of for reseting after submitting -->
