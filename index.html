@@ -23,8 +23,10 @@
         <div class="sections">
             <h2>Biomass Consumption</h1>
                 <label for="totalRunninghrs">Total Running Hours:</label>
-                <input type="number" id="totalRunninghrs" name="Total Running Hours" required min="0"
-                    placeholder="Total Running Hours">
+
+                <input type="text" class="input" id="availability-duration" name="Total Running Hours"
+                    placeholder="HH:MM" pattern="^([01]?[0-9]|2[0-3]):[0-5][0-9]$" required>
+
                 <label for="storge">Storage:</label>
                 <input type="number" id="storge" name="Storage" required min="0" placeholder="Storage">
                 <label for="usedton">Used Ton:</label>
@@ -122,13 +124,10 @@
             document.getElementById('usedTon').value = '';
             document.getElementById('remaining').value = '';
             document.getElementById('totalRunninghrs').value = '';
-
-
-
-
         });
-
     </script>
+    <!-- end of for reseting after submitting -->
+
 
     <script>
         // Function to show the spinner
@@ -157,11 +156,25 @@
 
         form.addEventListener("submit", handleSubmit);
     </script>
-
-    <!-- end of for reseting after submitting -->
-
-
     <!-- end of spinner -->
+
+
+
+    <!-- check time validations -->
+    <script>
+        // Get the input element
+        var durationInput = document.getElementById('availability-duration');
+        durationInput.addEventListener('change', function () {
+            durationInput.setCustomValidity('');
+            var value = durationInput.value;
+            var hours = parseInt(value.split(':')[0]);
+            var minutes = parseInt(value.split(':')[1]);
+            if (isNaN(hours) || isNaN(minutes) || minutes >= 60) {
+                durationInput.setCustomValidity('Please enter a valid duration in HH:MM format with hours under 23 and minutes under 60.');
+            }
+        });
+    </script>
+    <!-- End of check time validations -->
 </body>
 
 </html>
