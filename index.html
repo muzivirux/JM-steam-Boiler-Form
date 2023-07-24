@@ -33,7 +33,8 @@
                     required oninput="sumFields('storage', 'usedkg', 'remaining')">
 
                 <label for="usedton">Used kg:</label>
-                <input type="number" id="usedTon" name="Used kg" required min="0" placeholder="Used kg">
+                <input type="number" id="usedkg" name="BiomassConsumption Used kg" required min="0"
+                    placeholder="Used kg" oninput="sumFields('storage', 'usedkg', 'remaining')">
                 <label for="storge">Remaining:</label>
                 <input type="number" id="remaining" name="BiomassConsumption Remaining" required min="0"
                     placeholder="Remaining" readonly tabindex="-1">
@@ -183,7 +184,7 @@
         function sumFields(input1Id, input2Id, resultId) {
             const field1Value = parseFloat(document.getElementById(input1Id).value) || 0;
             const field2Value = parseFloat(document.getElementById(input2Id).value) || 0;
-            const sum = field1Value + field2Value;
+            const sum = field1Value - field2Value;
             document.getElementById(resultId).value = sum;
 
         }
