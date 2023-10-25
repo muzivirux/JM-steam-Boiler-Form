@@ -7,7 +7,7 @@
 }
 
 /* heading animation */
-body::before {
+/* body::before {
   content: "";
   position: absolute;
   top: 0;
@@ -18,7 +18,7 @@ body::before {
   animation: bgAnimation 1s forwards;
   z-index: -1;
   height: 75vh;
-}
+} */
 @keyframes bgAnimation {
   0% {
     transform: translateY(-100%);
