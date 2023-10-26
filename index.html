@@ -39,7 +39,7 @@
             name="BiomassConsumption NEW Storage"
             min="0"
             placeholder="NEW Storage"
-            oninput="sumFields('storage', 'usedkg', 'remaining')"
+            id="newStorage"
           />
           <input
             type="number"
@@ -49,9 +49,21 @@
             min="0"
             placeholder="Storage"
             required
-            oninput="sumFields('storage', 'usedkg', 'remaining')"
+            
           />
+          <input
+            type="number"
+            id="totalStorage"
+            class="animate__animated animate__backInRight"
+            name="BiomassConsumption TOTAL Storage"
+            min="0"
+            placeholder="TOTAL Storage"
+            
+            oninput="sumFields('totalStorage', 'usedkg', 'remaining')"
+          />
+          </div>
 
+          <div class="RSD">
           <!-- <label for="usedton">Used kg:</label> -->
           <input
             type="number"
@@ -61,7 +73,7 @@
             required
             min="0"
             placeholder="Used kg"
-            oninput="sumFields('storage', 'usedkg', 'remaining')"
+            oninput="sumFields('totalStorage', 'usedkg', 'remaining')"
           />
           <!-- <label for="storge">Remaining:</label> -->
           <input
@@ -75,6 +87,7 @@
             readonly
             tabindex="-1"
           />
+          </div>
         </div>
         <label for="storge">Remarks:</label>
         <input
@@ -353,5 +366,25 @@ s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.
       });
     </script>
     <!-- End of check time validations -->
+
+    <!-- calculating new storage and remaining storage in total storage -->
+<script>
+  // Get the input elements
+  const newStorageInput = document.getElementById('newStorage');
+  const remainingStorageInput = document.getElementById('storage');
+  const totalStorageInput = document.getElementById('totalStorage');
+
+  // Function to update the Total Diesel storage
+  function updateTotalStorage() {
+      const newStorage = parseFloat(newStorageInput.value) || 0;
+      const remainingStorage = parseFloat(remainingStorageInput.value) || 0;
+      const totalStorage = newStorage + remainingStorage;
+      totalStorageInput.value = totalStorage;
+  }
+
+  // Add an event listener to the inputs to update the Total Diesel storage when they change
+  newStorageInput.addEventListener('input', updateTotalStorage);
+  remainingStorageInput.addEventListener('input', updateTotalStorage);
+</script>
   </body>
 </html>
